@@ -1,0 +1,17 @@
+{
+  "name": "embark",
+  "description": "embark demo app for learning",
+  "main": "Gruntfile.coffee",
+  "authors": [
+    "Chadrick Mahaffey <chadrickm@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
