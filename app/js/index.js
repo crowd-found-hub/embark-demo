@@ -1,19 +1,35 @@
-$(document).ready(function() {
+window.EmbarkDemo = {};
 
-  $("button.set").click(function() {
-    var value = parseInt($("input.text").val(), 10);
-    SimpleStorage.set(value);
-    addToLog("SimpleStorage.set("+value+")");
-  });
+EmbarkDemo.IndexScreen = {};
 
-  $("button.get").click(function() {
-    var value = SimpleStorage.get().toNumber();
-    $(".value").html(value);
-    addToLog("SimpleStorage.get()");
-  });
+$(document).ready(function () {
 
-  var addToLog = function(txt) {
-    $(".logs").append("<br>" + txt);
-  }
+    EmbarkDemo.IndexScreen.ViewModel = function () {
+        var self = this;
+
+        self.logs = ko.observableArray();
+        self.value = ko.observable(10);
+        self.displayValue = ko.observable(SimpleStorage.get().toNumber());
+
+        self.setValue = function() {
+            SimpleStorage.set(self.value());
+            self.addToLog("SimpleStorage.set(" + self.value() + ")");
+        };
+
+        self.getValue = function() {
+            var value = SimpleStorage.get().toNumber();
+            self.displayValue(value);
+            self.addToLog("SimpleStorage.get()");
+        };
+
+        self.addToLog = function(logText) {
+            self.logs.push(logText);
+        }
+
+        return self;
+    };
+
+    var viewModel = EmbarkDemo.IndexScreen.ViewModel();
+    ko.applyBindings(viewModel);
 
 });
