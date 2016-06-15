@@ -11,6 +11,9 @@ module.exports = (grunt) ->
 
       js:
         src: [
+          "bower_components/underscore/underscore-min.js"
+          "bower_components/moment/moment.js"
+          "bower_components/knockout/dist/knockout.js"
           "app/js/**/*.js"
         ]
 
