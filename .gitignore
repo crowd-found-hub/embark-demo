@@ -2,3 +2,4 @@ node_modules/
 dist/
 generated/
 bower_components/
+.vscode/
