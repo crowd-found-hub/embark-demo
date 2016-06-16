@@ -9,10 +9,12 @@ $(document).ready(function () {
 
         self.logs = ko.observableArray();
         self.value = ko.observable(10);
+        self.toAddress = ko.observable();
         self.displayValue = ko.observable(SimpleStorage.get().toNumber());
 
         self.setValue = function() {
             SimpleStorage.set(self.value());
+            //MyToken.transfer(self.value(), self.toAddress());
             self.addToLog("SimpleStorage.set(" + self.value() + ")");
         };
 
