@@ -61,7 +61,7 @@ contract Proposal {
       _
     }
   }
-
+  
   function resolvePledging() onlyAfter(pledgeData.endDate) atStatus(Status.Pledging) internal returns (bool _success) {
     uint256 _totalpledges = pledgeData.totalApproves + pledgeData.totalDeclines;
     uint256 _approveppb = partsPerBillion(pledgeData.totalApproves, _totalpledges); 

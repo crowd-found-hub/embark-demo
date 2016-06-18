@@ -7,12 +7,30 @@ development:
   datadir: /tmp/embark
   chains: config/chains/development.json
   mine_when_needed: true
-  gas_limit: 500000
-  gas_price: 10000000000000
   console: false
   account:
     init: true
     password: config/password
+  ConfigInterface:
+    gas_limit: 5000000
+  Config:
+    gas_limit: 1000000
+  Proposal:
+    gas_limit: 1000000
+    args:
+      - $Config
+      - 0x0947E734fEf9B766a846633B716fF25472dC9b5A
+      - 0xE3c9296D9ADE225045cFb1Dd7aBFa426a4A58fCb
+      - "testnet"
+      - true
+  Token:
+    args:
+      - $Config
+  TokenSales:
+    args:
+      - $Config
+  gas_limit: 500000
+  gas_price: 10000000000000
 staging:
   testnet: true
   rpc_host: localhost

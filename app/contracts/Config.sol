@@ -2,7 +2,7 @@ import "./Interfaces.sol";
 
 contract Config is ConfigInterface {
 
-  event ConfigChange(bytes32 indexed _configKey, address indexed _user);
+    event ConfigChange(bytes32 indexed _configKey, address indexed _user);
 
   modifier ifAdmin() {
     if (admins[msg.sender] == false) throw;
